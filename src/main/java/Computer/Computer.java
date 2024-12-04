@@ -1,22 +1,17 @@
 package Computer;
 
+import facade.ComputerFacade;
+
 // TODO: Make this class a ComputerFacade for later hiding its rather complex behaviour
 public class Computer {
-    private CPU cpu;
-    private Memory memory;
-    private Storage storage;
+    private final ComputerFacade facade;
 
     public Computer() {
-        this.cpu = new CPU();
-        this.memory = new Memory();
-        this.storage = new Storage();
+        this.facade = new ComputerFacade();
     }
 
-    public void startComputer() {
-        cpu.freeze();
-        memory.load();
-        storage.read();
-        cpu.execute();
+    public void start() {
+        facade.startComputer();
     }
 }
 
